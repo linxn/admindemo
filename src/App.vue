@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!--test merge branch-->
+    <!--test merge branch  master-->
     <router-view/>
   </div>
 </template>
