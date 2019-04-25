@@ -1,25 +1,29 @@
 <template>
   <div id="app">
     <!--test merge branch  project-frame-->
-    <!--<router-view/>-->
-    <el-form>
-      <el-form-item prop="username">
-        用户名<el-input name="username" type="text" class="id_input"/>
-      </el-form-item>
-      <el-form-item prop="username">
-        密&nbsp;&nbsp;&nbsp;码<el-input name="password" type="password" class="psw_input"/>
-      </el-form-item>
-      <el-form-item>
-        <el-button>登录</el-button>
-      </el-form-item>
-    </el-form>
+<!--    <router-view/>-->
+    <el-button type="primary" @click="created">测试mock&axios</el-button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+    created () {
+      this.$axios.get('/user/userInfo')
+        .then(function (res) {
+          console.log(res.data.data.username)
+          console.log('bbb')
+        })
+        .catch(function (err) {
+          console.log(err)
+          console.log('aaa')
+        })
+    }
+  }
 }
+
 </script>
 
 <style>

@@ -1,0 +1,42 @@
+1、登录权限验证  permission.js
+
+通过路由器(vue-router)的钩子函数 配合后端token 来实现登录权限控制
+https://blog.csdn.net/sweet_note/article/details/81073564
+2、NProgress为第三方控件  进度条
+3、vuex 个人理解：用来做同一状态管理，即数据全局控制。
+	store中：
+		state为数据
+		getter拿数据
+		mutations为本地修改函数【this.$store.commit('show')】
+		actions为全局修改函数【this.$store.dispatch('hideFooter')】
+4、mock：用于模拟后端发送的是数据，前端引入mock.js即可使用，后端有数据时删除mock.js即可删除拦截
+[Mock.mock('/news/api', 'post', newsData)]
+//TODO
+5、utils文件夹下的request，封装了axios请求，api文件夹下的文件都引用到,但是还没有特别清楚调用流程(自己先试一试)
+6、validate仅仅为输入合不合法 没有到后端验证
+//TODO
+7、login.vue中有callback函数 但是没找到哪里调用原函数
+8、挂载dashboard：
+路由path / 重定向到Layout layout有子路由dashboard
+9、template没有动态挂载路由的例子
+10、创建项目
+vue init webpack my-project
+npm install
+npm run dev
+11、熟悉了git的使用
+12、utils\request.js 仅仅为拦截axios请求，以及响应，并没有调用axios进行请求的发送
+13、解释第5点
+a) utils/request.js封装了axios包
+b) api/* 下的js文件都是通过调用request.js 进行与后端的交互
+c) store/* 下的js文件，比如user.js 有不同的接口，其中部分调用了api下的接口，与后端交互验证数据，然后返回值
+d) views/* 下的vue文件，其实是调用store中的接口，进行与后台的交互。
+14、动态挂载路由 store/permission.js  里面有generateRoutes函数用于动态挂载路由
+而src下的permission.js则使用了generateRoutes函数，并调用addRoutes函数挂载了路由
+
+
+
+1、使用vue element-ui
+2、登录验证  router钩子函数
+3、登录使用axios请求 用api封装
+3、dashboard 加 侧边栏 加 table
+4、动态路由

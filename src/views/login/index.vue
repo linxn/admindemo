@@ -6,12 +6,12 @@
     <p>tips:username:{{loginForm.username}}, password:{{loginForm.password}}</p>
   </form>-->
 
-  <el-form>
+  <el-form class="login-form">
     <el-form-item prop="username">
-      用户名<el-input name="username" type="text" class="id_input" v-model="loginForm.username"/>
+      <el-input name="username" type="text" class="id_input" placeholder="username" v-model="loginForm.username"/>
     </el-form-item>
     <el-form-item prop="username">
-      密&nbsp;&nbsp;&nbsp;码<el-input name="password" type="password" class="psw_input" v-model="loginForm.password" />
+      <el-input name="password" type="password" class="psw_input" placeholder="password" v-model="loginForm.password" />
     </el-form-item>
     <el-form-item>
       <el-button @click="handleLogin">登录</el-button>
@@ -43,5 +43,9 @@ export default {
 </script>
 
 <style scoped>
-
+.login-form{
+  width: 250px;
+  padding: 35px 35px 15px 35px;
+  margin: 120px auto;
+}
 </style>
