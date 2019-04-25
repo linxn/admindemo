@@ -1,10 +1,22 @@
 <template>
-  <form>
+<!--  <form>
     <p>用户名<input type="text" class="id_input" v-model="loginForm.username"/></p>
-    <p>密&nbsp;&nbsp;&nbsp;码<input type="password" id="psw_input" v-model="loginForm.password" /></p>
+    <p>密&nbsp;&nbsp;&nbsp;码<input type="password" class="psw_input" v-model="loginForm.password" /></p>
     <button @click="handleLogin">登录</button>
     <p>tips:username:{{loginForm.username}}, password:{{loginForm.password}}</p>
-  </form>
+  </form>-->
+
+  <el-form>
+    <el-form-item prop="username">
+      用户名<el-input name="username" type="text" class="id_input" v-model="loginForm.username"/>
+    </el-form-item>
+    <el-form-item prop="username">
+      密&nbsp;&nbsp;&nbsp;码<el-input name="password" type="password" class="psw_input" v-model="loginForm.password" />
+    </el-form-item>
+    <el-form-item>
+      <el-button @click="handleLogin">登录</el-button>
+    </el-form-item>
+  </el-form>
 </template>
 
 <script>
