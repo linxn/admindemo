@@ -32,24 +32,22 @@ export default {
   },
   methods: {
     handleLogin () {
-      if (this.loginForm.username === 'admin1' && this.loginForm.password === 'admin2') {
-        this.$router.push({path: '/Layout'})
-      } else {
-        alert('false')
-      }
+      this.$store.dispatch('Login', this.loginForm).then((data) => {
+        if (data.code === 20000) {
+          this.$router.push({path: '/Layout'})
+        } else {
+          alert('wrong name or pwd!')
+        }
+      })
     }
   }
 }
 </script>
 
 <style scoped>
-<<<<<<< HEAD
 .login-form{
   width: 250px;
   padding: 35px 35px 15px 35px;
   margin: 120px auto;
 }
-=======
-
->>>>>>> dev
 </style>

@@ -1,27 +1,14 @@
 <template>
   <div id="app">
     <!--test merge branch  project-frame-->
-<!--    <router-view/>-->
-    <el-button type="primary" @click="created">测试mock&axios</el-button>
+    <router-view/>
+<!--    <el-button type="primary" @click="created">测试mock&axios</el-button>-->
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
-  methods: {
-    created () {
-      this.$axios.get('/user/userInfo')
-        .then(function (res) {
-          console.log(res.data.data.username)
-          console.log('bbb')
-        })
-        .catch(function (err) {
-          console.log(err)
-          console.log('aaa')
-        })
-    }
-  }
+  name: 'App'
 }
 
 </script>
