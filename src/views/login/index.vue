@@ -43,9 +43,13 @@ export default {
 </script>
 
 <style scoped>
+<<<<<<< HEAD
 .login-form{
   width: 250px;
   padding: 35px 35px 15px 35px;
   margin: 120px auto;
 }
+=======
+
+>>>>>>> dev
 </style>
