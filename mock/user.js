@@ -24,6 +24,7 @@ const users = {
 
 export default {
   login: res => {
+    console.log(res)
     const { username } = JSON.parse(res.body)
     const data = tokens[username]
 
