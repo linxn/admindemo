@@ -32,11 +32,11 @@ c) store/* 下的js文件，比如user.js 有不同的接口，其中部分调�
 d) views/* 下的vue文件，其实是调用store中的接口，进行与后台的交互。
 14、动态挂载路由 store/permission.js  里面有generateRoutes函数用于动态挂载路由
 而src下的permission.js则使用了generateRoutes函数，并调用addRoutes函数挂载了路由
+15、
+login.vue -> store/user.js -> api/user.js -> request.js -> axios (拦截器 -> request 插入token
+                                                                         -> 判断code是否为20000 做出相应动作
+mock.js 拦截 -> 成功 router跳转 - permission.js 每次检查token 拉取userInfo 挂载动态路由 后端进行每次操作都有检查token 即每次操作前后端都有检查
 
 
-
-1、使用vue element-ui
-2、登录验证  router钩子函数
-3、登录使用axios请求 用api封装
-3、dashboard 加 侧边栏 加 table
-4、动态路由
+2019.5.6
+1、store中的commit：用于调用mutaions中的方法
