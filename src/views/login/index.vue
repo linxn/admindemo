@@ -38,6 +38,8 @@ export default {
         } else {
           alert('wrong name or pwd!')
         }
+      }).catch((error) => {
+        alert('wrong code: ' + error + '\nwrong name or pwd!')
       })
     }
   }

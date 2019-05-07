@@ -1,3 +1,5 @@
+import { param2Obj } from "./utils";
+
 const tokens = {
   admin: {
     token: 'admin-token'
@@ -24,7 +26,6 @@ const users = {
 
 export default {
   login: res => {
-    console.log(res)
     const { username } = JSON.parse(res.body)
     const data = tokens[username]
 
@@ -37,6 +38,24 @@ export default {
     return {
       code: 60204,
       message: 'failed to login'
+    }
+  },
+  getInfo: res => {
+    console.log('res.url')
+    console.log(res.url)
+    const { token } = param2Obj(res.url)
+    const info = users[token]
+    console.log(token)
+
+    if (info) {
+      return {
+        code: 20000,
+        data: info
+      }
+    }
+    return {
+      code: 50008,
+      message: 'Login failed, unable to get user details.'
     }
   }
 }
