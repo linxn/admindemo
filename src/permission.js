@@ -1,9 +1,4 @@
-import router from './router'
-import store from './store'
-import { Message } from 'element-ui'
-import { getToken } from "@/utils/auth"
-
-const whiteList = ['/login'] //不重定向白名单
+/*const whiteList = ['/login'] //不重定向白名单
 router.beforeEach((to, from, next) => {
   if (getToken()) {
     if (to.path == './login') {
@@ -23,7 +18,6 @@ router.beforeEach((to, from, next) => {
       }
     }
   } else {
-    console.log("a"+getToken())
     if (whiteList.indexOf(to.path) !== -1) {
       next()
     } else {
@@ -32,4 +26,4 @@ router.beforeEach((to, from, next) => {
     }
   }
 
-})
+})*/

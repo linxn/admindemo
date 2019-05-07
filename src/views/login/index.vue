@@ -25,14 +25,15 @@ export default {
   data () {
     return {
       loginForm: {
-        username: 'admin1',
-        password: 'admin1'
+        username: 'admin',
+        password: 'admin'
       }
     }
   },
   methods: {
     handleLogin () {
       this.$store.dispatch('Login', this.loginForm).then((data) => {
+        console.log('eee ' + data)
         if (data.code === 20000) {
           this.$router.push({path: '/Layout'})
         } else {

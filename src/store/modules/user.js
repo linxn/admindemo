@@ -31,9 +31,9 @@ const user = {
       return new Promise((resolve, reject) => {
         login(username, userInfo.password).then(response => {
           const data = response.data
-          console.log(response)
-          console.log('aaa')
+          console.log(data)
           if (data.code === 20000) {
+            console.log('add  ' + data.data.token)
             setToken(data.data.token)
             resolve(data) // 成功回调
             commit('SET_TOKEN', data.data.token)
@@ -42,7 +42,6 @@ const user = {
           }
         }).catch(error => {
           reject(error) // 失败回调
-          console.log('bbb')
         })
       })
     },
