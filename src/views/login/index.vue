@@ -25,7 +25,7 @@ export default {
   data () {
     return {
       loginForm: {
-        username: 'admin1',
+        username: 'admin',
         password: 'admin1'
       }
     }
@@ -33,11 +33,9 @@ export default {
   methods: {
     handleLogin () {
       this.$store.dispatch('Login', this.loginForm).then((data) => {
-        if (data.code === 20000) {
-          this.$router.push({path: '/Layout'})
-        } else {
-          alert('wrong name or pwd!')
-        }
+        this.$router.push({path: '/Layout'})
+      }).catch((error) => {
+        alert(error + ': wrong name or pwd!')
       })
     }
   }
