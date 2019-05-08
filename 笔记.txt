@@ -40,3 +40,8 @@ mock.js 拦截 -> 成功 router跳转 - permission.js 每次检查token 拉取us
 
 2019.5.6
 1、store中的commit：用于调用mutaions中的方法
+
+2019.5.7
+1、permission.js 没有生效 直接写在router/index.js中
+2、写入cookie & 写入roles
+3、permission跳转
