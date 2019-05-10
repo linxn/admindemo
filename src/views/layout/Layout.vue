@@ -1,8 +1,7 @@
 <template>
-    <div class="main-container">
-      <el-button @click="logout" class="to-right">登出</el-button>
+    <div class="app-wrapper">
       <div class="main-container">
-        <navbar/>
+        <navbar class="mynavbar"/>
         <app-main/>
         <p>Hello world</p>
       </div>
@@ -14,13 +13,6 @@ import { Navbar, AppMain } from './components'
 
 export default {
   name: 'Layout',
-  methods: {
-    logout () {
-      this.$store.dispatch('LogOut').then(() => {
-        location.reload() // 为了重新实例化vue-router对象 避免bug
-      })
-    }
-  },
   components: {
     Navbar,
     AppMain
@@ -35,7 +27,27 @@ export default {
 </script>
 
 <style scoped>
-.to-right {
-  float: right;
-}
+  .app-wrapper {
+  @include clearfix;
+    position: relative;
+    height: 100%;
+    width: 100%;
+  &.mobile.openSidebar{
+     position: fixed;
+     top: 0;
+   }
+  }
+  .drawer-bg {
+    background: #000;
+    opacity: 0.3;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    position: absolute;
+    z-index: 999;
+  }
+  .mynavbar {
+    position: relative;
+    top: -60px;
+  }
 </style>
