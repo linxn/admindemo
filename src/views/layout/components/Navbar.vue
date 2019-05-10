@@ -1,15 +1,8 @@
 <template>
     <div class="navbar">
+      <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
+<!--      <breadcrumb />-->
       <span>此为导航栏</span>
-      <!-- <el-dropdown trigger="click">
-        <el-dropdown-menu slot="dropdown" class="user-dropdown">
-          <router-link class="inlineBlock" to="/">
-            <el-dropdown-item>
-              Home
-            </el-dropdown-item>
-          </router-link>
-        </el-dropdown-menu>
-      </el-dropdown> -->
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <i class="el-icon-caret-bottom"/>
@@ -30,16 +23,17 @@
 
 <script>
 import { mapGetters } from 'vuex'
-/*  import Breadcrumb from '@/components/Breadcrumb'
-import Hamburger from '@/components/Hamburger'  */
+import Breadcrumb from '@/components/Breadcrumb'
+import Hamburger from '@/components/Hamburger'
 
 export default {
-/*  components: {
+  components: {
     Breadcrumb,
     Hamburger
-  },  */
+  },
   computed: {
     ...mapGetters([
+      'sidebar',
       'avatar'
     ])
   },
@@ -48,6 +42,9 @@ export default {
       this.$store.dispatch('LogOut').then(() => {
         location.reload() // 为了重新实例化vue-router对象 避免bug
       })
+    },
+    toggleSideBar () {
+      this.$store.dispatch('ToggleSideBar')
     }
   }
 }
